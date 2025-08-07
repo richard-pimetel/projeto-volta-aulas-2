@@ -1,0 +1,238 @@
+.carrossel {
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.carrossel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  background: white;
+  height: 700px;
+}
+
+.slides-wrapper {
+  display: flex;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  height: 100%;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.imagem-slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.info-slide {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  padding: 60px 40px 30px;
+}
+
+.titulo-foto {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.detalhes-foto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.visualizacoes,
+.data {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.botao-carrossel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: bold;
+  color: #e53935;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.botao-carrossel:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+.botao-carrossel:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.anterior {
+  left: 30px;
+}
+
+.proximo {
+  right: 30px;
+}
+
+.indicadores {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.indicador {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(229, 57, 53, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.indicador::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  transition: border-color 0.3s ease;
+}
+
+.indicador.ativo,
+.indicador:hover {
+  background: #e53935;
+  transform: scale(1.3);
+}
+
+.indicador.ativo::before {
+  border-color: rgba(229, 57, 53, 0.3);
+}
+
+@media (max-width: 768px) {
+  .carrossel {
+    margin: 0 10px;
+  }
+  
+  .carrossel-container {
+    border-radius: 15px;
+    height: 500px;
+  }
+  
+  .info-slide {
+    padding: 40px 25px 20px;
+  }
+  
+  .titulo-foto {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+  }
+  
+  .detalhes-foto {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  
+  .visualizacoes,
+  .data {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+  
+  .botao-carrossel {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+  
+  .anterior {
+    left: 20px;
+  }
+  
+  .proximo {
+    right: 20px;
+  }
+  
+  .indicadores {
+    gap: 8px;
+    margin-top: 25px;
+  }
+  
+  .indicador {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carrossel {
+    margin: 0 5px;
+  }
+  
+  .carrossel-container {
+    height: 400px;
+  }
+  
+  .info-slide {
+    padding: 30px 20px 15px;
+  }
+  
+  .titulo-foto {
+    font-size: 1.2rem;
+  }
+  
+  .detalhes-foto {
+    font-size: 0.8rem;
+  }
+  
+  .botao-carrossel {
+    width: 45px;
+    height: 45px;
+    font-size: 22px;
+  }
+  
+  .anterior {
+    left: 15px;
+  }
+  
+  .proximo {
+    right: 15px;
+  }
+}
